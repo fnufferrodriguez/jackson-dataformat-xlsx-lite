@@ -15,10 +15,10 @@ jobs:
       - name: checkout code
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
       - name: setup java
-        uses: actions/setup-java@b6e674f4b717d7b0ae3baee0fbe79f498905dfde
+        uses: actions/setup-java@bbe666c2fcd27ec809703dec50e508c2fdc7f6654
         with:
           java-version: '8'
-          distribution: temurin
+          distribution: 'temurin'
           server-id: github
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
