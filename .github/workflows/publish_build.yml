@@ -18,16 +18,14 @@ jobs:
         uses: actions/setup-java@b6e674f4b717d7b0ae3baee0fbe79f498905dfde
         with:
           java-version: '8'
-          java-package: jdk
-          cache: 'maven'
+          distribution: temurin
           server-id: github
-          settings-path: ${{ github.workspace }}
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
-         # these are the credentials we will need
+        # these are the credentials we will need
         env:
-          GITHUB_ACTOR: ${{ secrets.PACKAGES_USER }}
-          GITHUB_TOKEN: ${{ secrets.PACKAGES_PAT }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Artifacts
         id: thedeploy
-        run: ./mvnw clean deploy --settings $GITHUB_WORKSPACE/settings.xml
+        run: ./mvnw clean deploy
