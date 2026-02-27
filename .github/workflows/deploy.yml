@@ -1,8 +1,11 @@
-name: Deploy jackson-dataformat-xlsx-lite
-on:
-  push:
-    branches:
-      - master
+name: Deploy jackson-dataformat-xlsx-lite with Maven
+
+permissions:
+  contents: read
+  packages: write
+
+# this should only be triggered manually
+on: workflow_dispatch
 
 jobs:
   publish:
@@ -16,12 +19,15 @@ jobs:
         with:
           java-version: '8'
           java-package: jdk
-          server-id: usbr-component
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
+          cache: 'maven'
+          server-id: github
+          settings-path: ${{ github.workspace }}
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+         # these are the credentials we will need
+        env:
+          GITHUB_ACTOR: ${{ secrets.PACKAGES_USER }}
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_PAT }}
       - name: Publish Artifacts
         id: thedeploy
-        run: ./mvnw clean deploy -DMAVEN_URL_SNAPSHOTS=${{ secrets.DEPLOY_URL_SNAPSHOTS }} -DMAVEN_URL_RELEASES=${{ secrets.DEPLOY_URL_RELEASES }}
-        env:
-          MAVEN_USERNAME: ${{ secrets.DEPLOY_USER }}
-          MAVEN_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+        run: ./mvnw clean deploy --settings $GITHUB_WORKSPACE/settings.xml

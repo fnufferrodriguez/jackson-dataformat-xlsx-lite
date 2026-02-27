@@ -1,9 +1,11 @@
-name: Build jackson-dataformat-xlsx-lite
+name: Build jackson-dataformat-xlsx-lite with Maven
+
+
 on:
   push:
+    branches: [ "main", "master" ]
   pull_request:
-    branches:
-      - master
+    branches: [ "main", "master" ]
 
 jobs:
   build:
