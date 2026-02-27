@@ -24,8 +24,8 @@ jobs:
           server-password: GITHUB_TOKEN
         # these are the credentials we will need
         env:
-          GITHUB_ACTOR: ${{ secrets.PACKAGES_USER }}
-          GITHUB_TOKEN: ${{ secrets.PACKAGES_PAT }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Artifacts
         id: thedeploy
         run: ./mvnw clean deploy

@@ -151,12 +151,12 @@
         <snapshotRepository>
             <id>github</id>
             <name>GitHub Packages (Snapshots)</name>
-            <url>https://maven.pkg.github.com/doi-bor/jackson-dataformat-xlsx-lite</url>
+            <url>https://maven.pkg.github.com/fnufferrodriguez/jackson-dataformat-xlsx-lite</url>
         </snapshotRepository>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/doi-bor/jackson-dataformat-xlsx-lite</url>
+            <url>https://maven.pkg.github.com/fnufferrodriguez/jackson-dataformat-xlsx-lite</url>
         </repository>
     </distributionManagement>
 </project>
