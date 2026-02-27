@@ -149,12 +149,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>usbr-component</id>
-            <url>${MAVEN_URL_SNAPSHOTS}</url>
+            <id>github</id>
+            <name>GitHub Packages (Snapshots)</name>
+            <url>https://maven.pkg.github.com/doi-bor/jackson-dataformat-xlsx-lite</url>
         </snapshotRepository>
         <repository>
-            <id>usbr-component</id>
-            <url>${MAVEN_URL_RELEASES}</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/doi-bor/jackson-dataformat-xlsx-lite</url>
         </repository>
     </distributionManagement>
 </project>

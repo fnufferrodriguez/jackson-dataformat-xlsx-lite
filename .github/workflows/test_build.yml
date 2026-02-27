@@ -1,9 +1,11 @@
-name: Build jackson-dataformat-xlsx-lite
+name: Build jackson-dataformat-xlsx-lite with Maven
+
+
 on:
   push:
+    branches: [ "main", "master" ]
   pull_request:
-    branches:
-      - master
+    branches: [ "main", "master" ]
 
 jobs:
   build:
@@ -11,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
       - name: setup java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@b6e674f4b717d7b0ae3baee0fbe79f498905dfde
         with:
           java-version: '8'
           java-package: jdk
